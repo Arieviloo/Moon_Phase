@@ -14,6 +14,7 @@
 		E2A6C94D2AA10A4E00490012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A6C94B2AA10A4E00490012 /* LaunchScreen.storyboard */; };
 		E2A6C9582AA110D100490012 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A6C9572AA110D100490012 /* UIColor + Extension.swift */; };
 		E2A6C95A2AA1132A00490012 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A6C9592AA1132A00490012 /* HomeView.swift */; };
+		E2A6C95D2AA1194F00490012 /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A6C95C2AA1194F00490012 /* Moon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E2A6C94E2AA10A4E00490012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2A6C9572AA110D100490012 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		E2A6C9592AA1132A00490012 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E2A6C95C2AA1194F00490012 /* Moon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		E2A6C93F2AA10A4D00490012 /* Moon_Phase */ = {
 			isa = PBXGroup;
 			children = (
+				E2A6C95B2AA1193200490012 /* Model */,
 				E2A6C9562AA110C000490012 /* Extension */,
 				E2A6C9552AA10B5600490012 /* Home */,
 				E2A6C9542AA10B1200490012 /* Resource */,
@@ -92,6 +95,14 @@
 				E2A6C9572AA110D100490012 /* UIColor + Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E2A6C95B2AA1193200490012 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2A6C95C2AA1194F00490012 /* Moon.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +179,7 @@
 				E2A6C9582AA110D100490012 /* UIColor + Extension.swift in Sources */,
 				E2A6C9412AA10A4D00490012 /* AppDelegate.swift in Sources */,
 				E2A6C95A2AA1132A00490012 /* HomeView.swift in Sources */,
+				E2A6C95D2AA1194F00490012 /* Moon.swift in Sources */,
 				E2A6C9432AA10A4D00490012 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
