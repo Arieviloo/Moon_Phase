@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private var homeView: HomeView?
+    private var presentVC = PresentViewController()
     
     let data: [Moon] = [
         Moon(phaseName: "Lua Nova", imageName: "new-moon"),
@@ -45,21 +46,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
-        
         cell?.phaseNameLabel.text = data.compactMap({$0.phaseName})[indexPath.row]
         cell?.moonImage.image = UIImage(named: "\(data.compactMap({$0.imageName})[indexPath.row])")
-        
-        
+
         return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         homeView?.tableView.deselectRow(at: indexPath, animated: true)
+        presentVC.titleLabel.text = data.compactMap({$0.phaseName})[indexPath.row]
+        present(presentVC, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         150
     }
+    
+   
     
 }
 
