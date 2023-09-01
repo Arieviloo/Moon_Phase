@@ -13,7 +13,13 @@ class HomeViewController: UIViewController {
     
     let data: [Moon] = [
         Moon(phaseName: "Lua Nova", imageName: "new-moon"),
+        Moon(phaseName: "Lua Crescente", imageName: "waxing-crescent-moon"),
+        Moon(phaseName: "Lua Quarto Crescente", imageName: "first-quarter-moon"),
+        Moon(phaseName: "Lua Crescente Gibosa", imageName: "waxing-gibbous-moon"),
         Moon(phaseName: "Lua Cheia", imageName: "full-moon"),
+        Moon(phaseName: "Lua Minguante Gibosa", imageName: "waning-gibbous-moon"),
+        Moon(phaseName: "Lua Quarto Minguante", imageName: "last-quarter-moon"),
+        Moon(phaseName: "Lua Minguante", imageName: "waning-crescent-moon"),
     ]
     
     override func loadView() {
@@ -25,6 +31,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.primaryColor
         title = "Moon Phase"
+        navigationController?.navigationBar.barTintColor = UIColor.primaryColor
         navigationController?.navigationBar.prefersLargeTitles = true
         
         homeView?.protocolsTableView(delegate: self, dataSource: self)
@@ -33,17 +40,26 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
+        
+        cell?.phaseNameLabel.text = data.compactMap({$0.phaseName})[indexPath.row]
+        cell?.moonImage.image = UIImage(named: "\(data.compactMap({$0.imageName})[indexPath.row])")
+        
+        
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         homeView?.tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        150
+    }
     
 }
 
