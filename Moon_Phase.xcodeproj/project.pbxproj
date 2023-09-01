@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E258FCFF2AA17FD100D8B80C /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258FCFE2AA17FD100D8B80C /* HomeTableViewCell.swift */; };
 		E2A6C9412AA10A4D00490012 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A6C9402AA10A4D00490012 /* AppDelegate.swift */; };
 		E2A6C9432AA10A4D00490012 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A6C9422AA10A4D00490012 /* SceneDelegate.swift */; };
 		E2A6C9452AA10A4D00490012 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A6C9442AA10A4D00490012 /* HomeViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E258FCFE2AA17FD100D8B80C /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		E2A6C93D2AA10A4D00490012 /* Moon_Phase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moon_Phase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A6C9402AA10A4D00490012 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A6C9422AA10A4D00490012 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E258FCFD2AA17FC300D8B80C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E258FCFE2AA17FD100D8B80C /* HomeTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		E2A6C9342AA10A4D00490012 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,7 @@
 		E2A6C9552AA10B5600490012 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E258FCFD2AA17FC300D8B80C /* Cell */,
 				E2A6C9442AA10A4D00490012 /* HomeViewController.swift */,
 				E2A6C9592AA1132A00490012 /* HomeView.swift */,
 			);
@@ -177,6 +188,7 @@
 			files = (
 				E2A6C9452AA10A4D00490012 /* HomeViewController.swift in Sources */,
 				E2A6C9582AA110D100490012 /* UIColor + Extension.swift in Sources */,
+				E258FCFF2AA17FD100D8B80C /* HomeTableViewCell.swift in Sources */,
 				E2A6C9412AA10A4D00490012 /* AppDelegate.swift in Sources */,
 				E2A6C95A2AA1132A00490012 /* HomeView.swift in Sources */,
 				E2A6C95D2AA1194F00490012 /* Moon.swift in Sources */,
