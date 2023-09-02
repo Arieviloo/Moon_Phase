@@ -12,6 +12,8 @@ class HomeViewController: UIViewController {
     private var homeView: HomeView?
     private var presentVC = PresentViewController()
     
+    private var service: DataMoon = DataMoon()
+    
     let data: [Moon] = [
         Moon(phaseName: "Lua Nova", imageName: "new-moon"),
         Moon(phaseName: "Lua Crescente", imageName: "waxing-crescent-moon"),
@@ -36,6 +38,18 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         homeView?.protocolsTableView(delegate: self, dataSource: self)
+        
+        service.getMoon{ result in
+            switch result {
+                case .success(let sucess):
+                    print("deu bom")
+
+                case .failure(let error):
+                    print(error)
+            }
+
+        }
+    
     }
 }
 

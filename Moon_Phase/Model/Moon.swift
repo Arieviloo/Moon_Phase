@@ -11,3 +11,16 @@ struct Moon {
     let phaseName: String
     let imageName: String
 }
+
+
+struct MoonList: Codable {
+    let moon: [PhaseMoon]
+}
+
+struct PhaseMoon: Codable {
+    let phaseName: String
+    let iconName: String
+    let imageName: String
+    let description: String
+}
+
