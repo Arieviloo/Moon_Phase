@@ -63,6 +63,15 @@
 			path = Present;
 			sourceTree = "<group>";
 		};
+		E27C66AE2AA38B2C00569A22 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E2A6C9552AA10B5600490012 /* Home */,
+				E258FD002AA1A25A00D8B80C /* Present */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		E2A6C9342AA10A4D00490012 = {
 			isa = PBXGroup;
 			children = (
@@ -82,12 +91,11 @@
 		E2A6C93F2AA10A4D00490012 /* Moon_Phase */ = {
 			isa = PBXGroup;
 			children = (
-				E2E850D42AA2136B009B8F8B /* Service */,
-				E258FD002AA1A25A00D8B80C /* Present */,
-				E2A6C95B2AA1193200490012 /* Model */,
 				E2A6C9562AA110C000490012 /* Extension */,
-				E2A6C9552AA10B5600490012 /* Home */,
+				E2A6C95B2AA1193200490012 /* Model */,
 				E2A6C9542AA10B1200490012 /* Resource */,
+				E2E850D42AA2136B009B8F8B /* Service */,
+				E27C66AE2AA38B2C00569A22 /* Scenes */,
 				E2A6C94E2AA10A4E00490012 /* Info.plist */,
 			);
 			path = Moon_Phase;
