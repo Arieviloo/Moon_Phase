@@ -11,7 +11,8 @@ class HomeViewController: UIViewController {
     
     private var homeView: HomeView?
     private var presentVC = PresentViewController()
-    
+   
+    private var moonOutraDta: [PhaseMoon] = []
     private var service: DataMoon = DataMoon()
     
     let data: [Moon] = [
@@ -27,6 +28,7 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         homeView = HomeView()
+
         view = homeView
     }
 
@@ -42,12 +44,12 @@ class HomeViewController: UIViewController {
         service.getMoon{ result in
             switch result {
                 case .success(let sucess):
-                    print("deu bom")
-
+                    print("deu bom \(sucess)")
+                self.moonOutraDta = sucess.moon
+                self.homeView?.tableView.reloadData()
                 case .failure(let error):
                     print(error)
             }
-
         }
     
     }
@@ -55,29 +57,26 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+        moonOutraDta.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
-        cell?.phaseNameLabel.text = data.compactMap({$0.phaseName})[indexPath.row]
-        cell?.moonImage.image = UIImage(named: "\(data.compactMap({$0.imageName})[indexPath.row])")
+        cell?.phaseNameLabel.text = moonOutraDta[indexPath.row].phaseName
+        cell?.moonImage.image = UIImage(named: "\(moonOutraDta[indexPath.row].iconName)")
 
         return cell ?? UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        homeView?.tableView.deselectRow(at: indexPath, animated: true)
-        presentVC.titleLabel.text = data.compactMap({$0.phaseName})[indexPath.row]
-        present(presentVC, animated: true)
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         150
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        homeView?.tableView.deselectRow(at: indexPath, animated: true)
+        presentVC.titleLabel.text = moonOutraDta[indexPath.row].phaseName
+        present(presentVC, animated: true)
+        
+    }
    
-    
 }
-
