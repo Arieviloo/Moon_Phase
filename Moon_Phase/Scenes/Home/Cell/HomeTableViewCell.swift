@@ -14,6 +14,7 @@ class HomeTableViewCell: UITableViewCell {
     lazy var phaseNameLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        $0.textColor = UIColor.testColor
         return $0
     }(UILabel())
     

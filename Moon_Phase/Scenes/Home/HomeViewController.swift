@@ -15,16 +15,16 @@ class HomeViewController: UIViewController {
     private var moonOutraDta: [PhaseMoon] = []
     private var service: DataMoon = DataMoon()
     
-    let data: [Moon] = [
-        Moon(phaseName: "Lua Nova", imageName: "new-moon"),
-        Moon(phaseName: "Lua Crescente", imageName: "waxing-crescent-moon"),
-        Moon(phaseName: "Lua Quarto Crescente", imageName: "first-quarter-moon"),
-        Moon(phaseName: "Lua Crescente Gibosa", imageName: "waxing-gibbous-moon"),
-        Moon(phaseName: "Lua Cheia", imageName: "full-moon"),
-        Moon(phaseName: "Lua Minguante Gibosa", imageName: "waning-gibbous-moon"),
-        Moon(phaseName: "Lua Quarto Minguante", imageName: "last-quarter-moon"),
-        Moon(phaseName: "Lua Minguante", imageName: "waning-crescent-moon"),
-    ]
+//    let data: [Moon] = [
+//        Moon(phaseName: "Lua Nova", imageName: "new-moon"),
+//        Moon(phaseName: "Lua Crescente", imageName: "waxing-crescent-moon"),
+//        Moon(phaseName: "Lua Quarto Crescente", imageName: "first-quarter-moon"),
+//        Moon(phaseName: "Lua Crescente Gibosa", imageName: "waxing-gibbous-moon"),
+//        Moon(phaseName: "Lua Cheia", imageName: "full-moon"),
+//        Moon(phaseName: "Lua Minguante Gibosa", imageName: "waning-gibbous-moon"),
+//        Moon(phaseName: "Lua Quarto Minguante", imageName: "last-quarter-moon"),
+//        Moon(phaseName: "Lua Minguante", imageName: "waning-crescent-moon"),
+//    ]
     
     override func loadView() {
         homeView = HomeView()
@@ -34,9 +34,8 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.primaryColor
         title = "Moon Phase"
-        navigationController?.navigationBar.barTintColor = UIColor.primaryColor
+        navigationController?.navigationBar.barTintColor = UIColor.testColor
         navigationController?.navigationBar.prefersLargeTitles = true
         
         homeView?.protocolsTableView(delegate: self, dataSource: self)
@@ -74,7 +73,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         homeView?.tableView.deselectRow(at: indexPath, animated: true)
-        presentVC.titleLabel.text = moonOutraDta[indexPath.row].phaseName
+//        presentVC.presentView.titleLabel.text = moonOutraDta[indexPath.row].phaseName
+//        presentVC.presentView.phaseImageView.image = UIImage(named: moonOutraDta[indexPath.row].imageName)
+//        presentVC.presentView.descriptionLabel.text = moonOutraDta[indexPath.row].description
+        
+        presentVC.configPresentView(data: moonOutraDta[indexPath.row])
         present(presentVC, animated: true)
         
     }

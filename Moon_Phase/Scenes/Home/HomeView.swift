@@ -13,12 +13,14 @@ class HomeView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
         $0.separatorInset = .zero
+        
         return $0
     }(UITableView())
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(tableView)
+        backgroundColor = UIColor.testColor
         configConstraints()
     }
     
