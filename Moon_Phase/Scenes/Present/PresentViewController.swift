@@ -8,25 +8,27 @@
 import UIKit
 
 class PresentViewController: UIViewController {
+
+    private var presentView: PresentView? = PresentView()
     
-    lazy var titleLabel: UILabel = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.text = "teste"
-        return $0
-    }(UILabel())
+//    override func loadView() {
+//        presentView = PresentView()
+//        view = presentView
+//    }
     
     override func viewDidLoad() {
+        view = presentView
         super.viewDidLoad()
         view.backgroundColor = .orange
-        
-        view.addSubview(titleLabel)
-        
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-        
     }
     
-    
+    public func configPresentView(data: PhaseMoon) {
+        guard let presentView else { return }
+        
+        presentView.titleLabel.text = data.phaseName
+        presentView.phaseImageView.image = UIImage(named: data.imageName)
+        presentView.descriptionLabel.text = data.description
+       
+    }
     
 }
