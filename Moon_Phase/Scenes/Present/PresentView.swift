@@ -11,6 +11,7 @@ class PresentView: UIView {
     
     lazy var titleLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         return $0
     }(UILabel())
     
@@ -22,6 +23,7 @@ class PresentView: UIView {
     
     lazy var descriptionLabel: UILabel = {
         $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         $0.numberOfLines = 0
         return $0
     }(UILabel())
@@ -43,7 +45,7 @@ class PresentView: UIView {
     private func configConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
             
             phaseImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             phaseImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
